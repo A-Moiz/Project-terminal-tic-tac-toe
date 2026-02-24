@@ -16,8 +16,18 @@
         ];
 */
 function validateMove(move, board) {
-    // Implement this at the end if you have time, otherwise you can help your teammates!
-    return true;
+  const movePattern = /^[1-3],[1-3]$/;
+  const [row, col] = move.split(",").map(Number);
+
+  if (!movePattern.test(move)) {
+    return false;
+  }
+
+  if (board[row - 1][col - 1] !== "_") {
+    return false;
+  }
+
+  return true;
 }
 
 /*
@@ -32,5 +42,12 @@ function validateMove(move, board) {
             - Return true
 */
 export function makeMove(board, move, player) {
+  if (!validateMove(move, board)) {
+    console.log("Try again...");
     return false;
+  }
+
+  const [row, col] = move.split(",").map(Number);
+  board[row - 1][col - 1] = player;
+  return true;
 }
