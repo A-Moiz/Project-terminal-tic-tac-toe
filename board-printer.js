@@ -44,10 +44,3 @@ export function checkIfNoMovesLeft(board) {
     }
     return true;
 }
-
-const testBoard = [
-    ["X", "_", "_"],
-    ["_", "X", "_"],
-    ["O", "O", "X"],
-];
-printBoard(testBoard);
